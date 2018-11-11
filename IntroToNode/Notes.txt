@@ -1,0 +1,31 @@
+Notes:
+
+ // global objects
+ //we can access it anywehre in any files
+
+console.log();
+
+setTimeout();   //use tis to call a function after a delay, standard JS
+clearTimeout(); 
+
+setInterval();  //use this to repetatively call a function after a given delay
+clearInterval();
+
+in browsers we have the window objects
+
+all functions above are part of the window objects
+
+if we make:
+    var message = '';
+    window.message //is another way of calling it
+
+local variables are not added to the global variables 
+
+for instance:
+    var message = '';
+    console.log(global.message); //will return an undefined error message
+
+local variables are restricted to the current file due to nodes modual system
+
+every node application has at least one node/file that we call the main module
+
