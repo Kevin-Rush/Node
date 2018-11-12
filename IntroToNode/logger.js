@@ -1,13 +1,14 @@
+const EventsEmitter = require('events'); //Camel case implies a class
 
-console.log(__filename);
-console.log(__dirname);
 var url = 'http://mylogger.io/log'; //sample URL, not a real service
 
-function log(message){
-    //send a HTTP request
-    console.log(message);
+class Logger extends EventsEmitter {
+    log(message){
+        //send a HTTP request
+        console.log(message);
+        //Raise an event
+        this.emit('messageLog', {id: 1, url: 'http://'});
+    }
 }
 
-module.exports = log; //this is making log public
-
-    
+module.exports = Logger; //this is making log public

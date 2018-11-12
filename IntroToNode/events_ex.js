@@ -1,12 +1,12 @@
 
 const EventsEmitter = require('events'); //Camel case implies a class
 
-const emitter = new EventsEmitter();
+const Logger = require('./logger');
+const logger = new Logger();
 
 //Register a listener
-emitter.on('messageLog', function(){    //you have to register a listener before calling it
-    console.log('Listener');
+logger.on('messageLog', function(arg) {    //you have to register a listener before calling it
+    console.log('Listener', arg);
 });
 
-//Raise an event
-emitter.emit('messageLog', {id: 1, url: 'http://'});
+logger.log('message');
