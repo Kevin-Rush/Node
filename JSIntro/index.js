@@ -56,4 +56,26 @@ console.log(person.name);
 person['name'] = 'Mary';
 console.log(person.name);
 
-//arrays
+//arrays    
+
+let selectedColours = ['red', 'blue'];
+selectedColours[2] = 1;
+console.log(selectedColours.length);
+
+//functions
+//performing a task
+function greet(name, lastName) {
+    console.log("hello "+name+" "+lastName);
+}
+
+greet(name, lastName);
+greet(firstName, lastName);
+
+//types of functinos
+
+//calculates a value
+function square(num){
+    return num*num;
+}
+
+console.log(square(2));
