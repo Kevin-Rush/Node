@@ -1,0 +1,34 @@
+//encapsulatin example
+
+let baseSalary =30000;
+let overtime =10;
+let rate = 20;
+
+function getWage(baseSalary, overtime, rate){
+    return baseSalary + (overtime *rate);
+}
+//Example of an object, see employee
+let employee = {
+    baseSalary: 30000,
+    overtime: 10,
+    rate: 20,
+    getWage: function(){
+        return this.baseSalary + (this.overtime * this.rate);
+    }
+};
+employee.getWage();
+//reduces complexity and increases reusability
+
+//abstraction 
+//is hiding content from the outisde and using it internally
+//this allows us to have a simpler interface
+//it reduces the imact of change on the rest of the application
+
+
+//inheritance 
+//children objects are able to inherite functions from parent objects
+//eleminates redundant code
+
+//polymorphism
+//objects have the ability to have the same type of function with different functionality within it
+// allows us to avoid ugly rendering code
