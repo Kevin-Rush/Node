@@ -118,10 +118,41 @@ function Circle5(radius){
 
     this.draw = function(){
         computeOptimumLocation(0.1);
+
         console.log('draw');
     };
 }
 
-const circle5 = new Circle4(10);
-circle5.computeOptimumLocation();
+const circle5 = new Circle5(10);
 circle5.draw();
+
+//getters and setters
+
+function Circle6(radius){
+
+    this.radius = radius;
+    let defaultLocation = {x:0, y:0};  //now defaultLocation is internal
+
+    this.getDefaultLocation = function(){
+        return defaultLocation ;
+    };
+
+    this.draw = function(){
+        console.log('draw');
+    };
+
+    Object.defineProperty(this, 'defaultLocation', {
+    get: function(){
+        return defaultLocation;
+    },
+    set: function(value){
+        if (!value.x || !value.y)
+            throw new Error ('Invalid Location!!');
+        defaultLocation = value;
+    }
+});
+}
+
+const circle6 = new Circle6(10);
+circle6.defaultLocation = 1;
+circle6.draw();
