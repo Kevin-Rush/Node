@@ -60,6 +60,68 @@ function CircleProps(radius){ //you are able to add properties on the fly
 const circProp = new CircleProps(10);
 
 circProp.location = {x: 1};
+
+const propertyName = 'center-location';
+circProp[propertyName] = {x: 1};
+
 circProp['location'] = {x:1}; //equal to above but isn't as clean looking
 //bracket notation can be used to implament properties with special characters
 
+delete circProp.location;
+
+//Enumerating Properties
+
+for (let key in circle){
+    if(typeof circle[key] !== 'function')
+        console.log(key, circle[key]);
+}
+
+const keys = Object.keys(circle);
+console.log(keys);
+
+if('radius' in circle)             //in operator allows us to find out if a property is in an object
+    console.log('Circle has a radius');
+
+
+function Circle4(radius){
+    this.radius = radius;
+    this.defaultLocation = {x:0, y:0};
+    this.computeOptimumLocation = function(factor){
+        //// ... do some magic
+    }
+
+    this.draw = function(){
+        this.computeOptimumLocation();
+        console.log('draw');
+    };
+}
+
+const circle4 = new Circle4(10);
+circle4.computeOptimumLocation();
+circle4.draw();
+
+//abstraction mean we should hide details and complexity and just show the essentials
+
+
+
+//private properties
+
+function Circle5(radius){
+
+    let colour = 'red'; //this is a local variable to the function, this way we can hid members from the outside
+
+    this.radius = radius;
+    let defaultLocation = {x:0, y:0};  //now defaultLocation is internal
+    let computeOptimumLocation = function(factor){ //this function is now internal
+        //// ... do some magic
+    }
+
+    this.draw = function(){
+        computeOptimumLocation(0.1);
+        console.log('draw');
+    };
+}
+
+const circle5 = new Circle4(10);
+circle5.computeOptimumLocation();
+circle5.draw();
